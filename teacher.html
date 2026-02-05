@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Teachers — WorkerConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #07102a, #07122a);
+            color: #eaf2ff;
+            margin: 0;
+            padding: 40px
+        }
+
+        .card {
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(231, 227, 227, 0.921), rgba(186, 172, 172, 0.789));
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        h1 {
+            margin-bottom: 6px
+        }
+
+        .meta {
+            color: #9fb7ff;
+            margin-bottom: 18px
+        }
+
+        .back {
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 8px 12px;
+            border-radius: 10px
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #00c6ff, #7c5ae0);
+            border: none;
+            color: #fff;
+            border-radius: 999px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <a class="back" href="workers.html">← Back to Categories</a>
+            <a class="back" href="index.html">Home</a>
+        </div>
+
+        <h1>Teachers</h1>
+        <p class="meta">Available private tutors and instructors.</p>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Mr. Ajay Singh</h5>
+                            <div>Phone: 9876500001</div>
+                            <div>Subject: Math</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Ajay Singh')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Ms. Rekha Patel</h5>
+                            <div>Phone: 9876500002</div>
+                            <div>Subject: English</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Rekha Patel')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Mr. Sunil Verma</h5>
+                            <div>Phone: 9876500003</div>
+                            <div>Subject: Science</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Sunil Verma')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Ms. Priya Joshi</h5>
+                            <div>Phone: 9876500004</div>
+                            <div>Subject: Hindi</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Priya Joshi')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Mr. Amit Kumar</h5>
+                            <div>Phone: 9876500005</div>
+                            <div>Subject: Physics</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Amit Kumar')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Ms. Lata Sharma</h5>
+                            <div>Phone: 9876500006</div>
+                            <div>Subject: Chemistry</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Lata Sharma')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Mr. Rohan Das</h5>
+                            <div>Phone: 9876500007</div>
+                            <div>Subject: Biology</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Rohan Das')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Ms. Neha Singh</h5>
+                            <div>Phone: 9876500008</div>
+                            <div>Subject: Computer</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Neha Singh')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Mr. Karan Pillai</h5>
+                            <div>Phone: 9876500009</div>
+                            <div>Subject: Social Studies</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Karan Pillai')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function book(name) {
+            window.location.href = 'address.html?worker=' + encodeURIComponent(name);
+        }
+    </script>
+
+</body>
+
+</html>

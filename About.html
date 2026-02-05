@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            padding: 40px 60px;
+            max-width: 600px;
+            text-align: center;
+            animation: fadeInUp 1.2s cubic-bezier(.68, -0.55, .27, 1.55);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            color: #2d3a4b;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .about-desc {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .about-team {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background: #e0ecff;
+            border-radius: 12px;
+            padding: 18px 22px;
+            box-shadow: 0 2px 8px rgba(102, 166, 255, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: popIn 1s cubic-bezier(.68, -0.55, .27, 1.55);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 24px rgba(102, 166, 255, 0.18);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .team-name {
+            font-weight: 600;
+            color: #2d3a4b;
+            margin-bottom: 6px;
+        }
+
+        .team-role {
+            font-size: 0.98rem;
+            color: #5a7bb6;
+        }
+
+        @media (max-width: 700px) {
+            .about-container {
+                padding: 24px 10px;
+            }
+
+            .about-team {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="about-container">
+        <div class="about-title">About Us</div>
+        <div class="about-desc">
+            Welcome to our organization! We are passionate about delivering quality and innovation.<br>
+            Our team is dedicated to making a positive impact and providing the best experience for our users.<br>
+            <br>
+            <em>We believe in creativity, collaboration, and continuous improvement.</em>
+        </div>
+        <div class="about-team">
+            <div class="team-member">
+                <div class="team-name">Alex Sharma</div>
+                <div class="team-role">Founder & Lead Designer</div>
+            </div>
+            <div class="team-member">
+                <div class="team-name">Priya Patel</div>
+                <div class="team-role">Developer</div>
+            </div>
+            <div class="team-member">
+                <div class="team-name">Rahul Verma</div>
+                <div class="team-role">Marketing Head</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

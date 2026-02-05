@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Painters — WorkerConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #07102a, #07122a);
+            color: #eaf2ff;
+            margin: 0;
+            padding: 40px
+        }
+
+        .card {
+            border-radius: 12px;
+            /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); */
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        h1 {
+            margin-bottom: 6px
+        }
+
+        .meta {
+            color: #9fb7ff;
+            margin-bottom: 18px
+        }
+
+        .back {
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 8px 12px;
+            border-radius: 10px
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #00c6ff, #7c5ae0);
+            border: none;
+            color: #fff;
+            border-radius: 999px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <a class="back" href="workers.html">← Back to Categories</a>
+            <a class="back" href="index.html">Home</a>
+        </div>
+
+        <h1>Painters</h1>
+        <p class="meta">Interior and exterior painters with finishing and texture options.</p>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Amit Sharma</h5>
+                            <div>Phone: 9123456780</div>
+                            <div>Hours: 8 AM - 4 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Amit Sharma')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Meera Nair</h5>
+                            <div>Phone: 9012345678</div>
+                            <div>Hours: 9 AM - 6 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Meera Nair')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Ravi K</h5>
+                            <div>Phone: 9001122334</div>
+                            <div>Hours: 8 AM - 5 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Ravi K')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Hema G</h5>
+                            <div>Phone: 8992233445</div>
+                            <div>Hours: 9 AM - 4 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Hema G')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Manoj P</h5>
+                            <div>Phone: 9883344556</div>
+                            <div>Hours: 8 AM - 6 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Manoj P')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Sunita R</h5>
+                            <div>Phone: 9774455667</div>
+                            <div>Hours: 9 AM - 5 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Sunita R')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Ramesh V</h5>
+                            <div>Phone: 9665566778</div>
+                            <div>Hours: 10 AM - 6 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Ramesh V')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/921/921038.png" width="64" alt="">
+                        <div>
+                            <h5 class="mb-1">Alka D</h5>
+                            <div>Phone: 9556677880</div>
+                            <div>Hours: 9 AM - 4 PM</div>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-book" onclick="book('Alka D')">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function book(name) {
+            window.location.href = 'address.html?worker=' + encodeURIComponent(name);
+        }
+    </script>
+</body>
+
+</html>

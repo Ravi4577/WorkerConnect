@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Worker Connect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb, #ff4b8b);
+            --primary: #6a11cb;
+            --primary-soft: #ff4b8b;
+            --twitter: #1da1f2;
+            --facebook: #1877f2;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f857a6, #ff5858);
+            background-size: 200% 200%;
+            animation: bgShift 16s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes bgShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .bg-shapes {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .bg-shapes .bubble {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.05));
+            filter: blur(1px);
+            opacity: 0.5;
+            animation: floatBubble 14s ease-in-out infinite;
+        }
+
+        .bg-shapes .bubble.b1 {
+            top: 8%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-shapes .bubble.b2 {
+            top: 65%;
+            left: 18%;
+            width: 180px;
+            height: 180px;
+            animation-delay: 2.8s;
+        }
+
+        .bg-shapes .bubble.b3 {
+            top: 18%;
+            right: 12%;
+            width: 190px;
+            height: 190px;
+            animation-delay: 5.2s;
+        }
+
+        .bg-shapes .bubble.b4 {
+            bottom: 10%;
+            right: 26%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 7.1s;
+        }
+
+        @keyframes floatBubble {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.45;
+            }
+
+            50% {
+                transform: translate3d(20px, -35px, 0) scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.45;
+            }
+        }
+
+        .snow-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .flake {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.1));
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            opacity: 0.8;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translate3d(0, -10vh, 0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate3d(var(--drift, 20vw), 110vh, 0);
+                opacity: 0.95;
+            }
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 950px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-left {
+            flex: 1 1 40%;
+            min-width: 260px;
+            background: var(--primary-gradient);
+            color: #ffffff;
+            padding: 40px 32px;
+            position: relative;
+        }
+
+        .auth-left h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .auth-left p {
+            font-size: 0.95rem;
+            max-width: 260px;
+            opacity: 0.9;
+        }
+
+        .auth-left .brand {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, #4ff0ff, #3b82f6);
+            opacity: 0.85;
+        }
+
+        .shape.shape-1 {
+            width: 130px;
+            height: 130px;
+            top: 18%;
+            right: 15%;
+        }
+
+        .shape.shape-2 {
+            width: 70px;
+            height: 70px;
+            bottom: 20%;
+            left: 18%;
+            background: radial-gradient(circle, #facc15, #fb7185);
+        }
+
+        .shape.shape-3 {
+            width: 40px;
+            height: 40px;
+            bottom: 10%;
+            right: 12%;
+            background: radial-gradient(circle, #a5b4fc, #38bdf8);
+            opacity: 0.7;
+        }
+
+        .auth-right {
+            flex: 1 1 60%;
+            min-width: 280px;
+            padding: 40px 46px 34px;
+            background: #ffffff;
+        }
+
+        .auth-right h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .auth-right .subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 26px;
+        }
+
+        .form-label {
+            color: #374151;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            padding: 10px 11px;
+            font-size: 0.93rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px rgba(106, 17, 203, 0.4);
+        }
+
+        .btn-submit-main {
+            background: linear-gradient(90deg, #ff4b8b, #ff9f43);
+            border: none;
+            width: 100%;
+            padding: 11px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 999px;
+            color: #ffffff;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 6px;
+            margin-bottom: 18px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            box-shadow: 0 14px 32px rgba(248, 113, 113, 0.55);
+        }
+
+        .btn-submit-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 40px rgba(236, 72, 153, 0.7);
+            filter: brightness(1.05);
+        }
+
+        .or-text {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin: 4px 0 12px;
+        }
+
+        .or-text span {
+            padding: 0 8px;
+            position: relative;
+            background: #ffffff;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 9px 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            color: #ffffff;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.3);
+        }
+
+        .social-twitter {
+            background: linear-gradient(90deg, #1da1f2, #38bdf8);
+        }
+
+        .social-facebook {
+            background: linear-gradient(90deg, #1877f2, #60a5fa);
+        }
+
+        .social-icon-circle {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .auth-card {
+                max-width: 540px;
+            }
+
+            .auth-left,
+            .auth-right {
+                flex: 1 1 100%;
+            }
+
+            .auth-left {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav style="position:fixed;top:12px;left:12px;right:12px;z-index:999;display:flex;justify-content:flex-end;gap:12px">
+        <a href="index.html" style="color:#111827;text-decoration:none;font-weight:600">Home</a>
+        <!-- <a href="workers.html" style="color:#111827;text-decoration:none;font-weight:600">Workers</a> -->
+        <a href="Login.html" style="color:#111827;text-decoration:none;font-weight:600">Login</a>
+    </nav>
+    <div class="bg-shapes">
+        <div class="bubble b1"></div>
+        <div class="bubble b2"></div>
+        <div class="bubble b3"></div>
+        <div class="bubble b4"></div>
+    </div>
+
+    <div class="snow-layer" id="snowLayer"></div>
+
+    <div class="auth-card">
+        <div class="auth-left">
+            <div class="brand">WORKER CONNECT</div>
+            <h1>Welcome</h1>
+            <p>Sign up to find trusted workers or offer your skills and start getting jobs quickly.</p>
+
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="auth-right">
+            <h2>Register</h2>
+            <p class="subtitle">Create your account to continue.</p>
+
+            <form action="register.php" method="POST">
+                <div class="mb-3">
+                    <label for="role" class="form-label">Register as</label>
+                    <select class="form-select" id="role" name="role" required>
+                        <option value="worker">Worker</option>
+                        <option value="client">Client</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" name="phone" required />
+                </div>
+
+                <div class="mb-3" id="skills-section">
+                    <label for="skills" class="form-label">Skills</label>
+                    <input type="text" class="form-control" id="skills" name="skills"
+                        placeholder="Electrician, Plumber, Carpenter etc." />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required />
+                </div>
+
+                <button type="submit" class="btn-submit-main">Continue</button>
+
+                <div class="or-text"><span>or sign up with</span></div>
+
+                <button type="button" class="social-btn social-twitter">
+                    <div class="social-icon-circle">t</div>
+                    <span>Sign up with Twitter</span>
+                </button>
+
+                <button type="button" class="social-btn social-facebook">
+                    <div class="social-icon-circle">f</div>
+                    <span>Sign up with Facebook</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const snowContainer = document.getElementById("snowLayer");
+        const FLAKE_COUNT = 80; // adjust for more/less snow
+
+        for (let i = 0; i < FLAKE_COUNT; i++) {
+            const flake = document.createElement("div");
+            flake.classList.add("flake");
+
+            const startX = Math.random() * 100;      // vw
+            const startDelay = Math.random() * 8;    // seconds
+            const duration = 6 + Math.random() * 8;  // 6–14s
+            const drift = (Math.random() * 40 - 20); // -20 to 20 vw
+
+            flake.style.left = startX + "vw";
+            flake.style.setProperty("--drift", drift + "vw");
+            flake.style.animationDuration = duration + "s";
+            flake.style.animationDelay = startDelay + "s";
+
+            snowContainer.appendChild(flake);
+        }
+
+        const roleSelect = document.getElementById('role');
+        const skillsSection = document.getElementById('skills-section');
+
+        function toggleSkills() {
+            const skillsInput = document.getElementById('skills');
+            if (roleSelect.value === 'client') {
+                skillsSection.style.display = 'none';
+                skillsInput.removeAttribute('required');
+            } else {
+                skillsSection.style.display = 'block';
+                skillsInput.setAttribute('required', 'required');
+            }
+        }
+
+        roleSelect.addEventListener('change', toggleSkills);
+        toggleSkills();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
