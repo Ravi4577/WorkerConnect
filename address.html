@@ -1,8 +1,4 @@
-<?php
-// Auto-generate Booking ID and Date before form loads
-$booking_id = strtoupper(uniqid("BK_")); // Example: BK_654F9A2A5C2D1
-$booking_date = date("Y-m-d H:i:s"); // Current date & time
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,7 +244,8 @@ $booking_date = date("Y-m-d H:i:s"); // Current date & time
     <div class="booking-container">
         <h2>Book Your Worker</h2>
 
-        <form action="booking.php" method="POST">
+        <!-- handle booking client-side to avoid 405 error -->
+        <form id="bookingForm">
             <!-- Hidden Booking Info -->
             <div class="form-section">
                 <div class="section-title">Booking Information</div>
@@ -317,7 +314,7 @@ $booking_date = date("Y-m-d H:i:s"); // Current date & time
                     <label class="form-label">Booking Date</label>
                     <!-- show generated booking date as placeholder only and allow editing -->
                     <input type="text" name="booking_date" class="form-control" placeholder="Enter booking date"
-                        value="">
+                         required>
                 </div>
             </div>
 
@@ -326,6 +323,18 @@ $booking_date = date("Y-m-d H:i:s"); // Current date & time
     </div>
 
     <script>
+        // intercept booking submit and redirect
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('bookingForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    // form data could be processed or stored here
+                    window.location.href = 'workers.html';
+                });
+            }
+        });
+
         // Simple JS snowfall generator
         const snowContainer = document.getElementById("snowLayer");
         const FLAKE_COUNT = 80; // increase/decrease for density
