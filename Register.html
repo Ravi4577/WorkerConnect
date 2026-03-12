@@ -361,7 +361,8 @@
 </head>
 
 <body>
-    <nav style="position:fixed;top:12px;left:12px;right:12px;z-index:999;display:flex;justify-content:flex-end;gap:12px">
+    <nav
+        style="position:fixed;top:12px;left:12px;right:12px;z-index:999;display:flex;justify-content:flex-end;gap:12px">
         <a href="index.html" style="color:#111827;text-decoration:none;font-weight:600">Home</a>
         <!-- <a href="workers.html" style="color:#111827;text-decoration:none;font-weight:600">Workers</a> -->
         <a href="Login.html" style="color:#111827;text-decoration:none;font-weight:600">Login</a>
@@ -389,7 +390,8 @@
             <h2>Register</h2>
             <p class="subtitle">Create your account to continue.</p>
 
-            <form action="register.php" method="POST">
+            <!-- form submission handled client-side to avoid HTTP 405 errors -->
+            <form id="registerForm">
                 <div class="mb-3">
                     <label for="role" class="form-label">Register as</label>
                     <select class="form-select" id="role" name="role" required>
@@ -442,6 +444,19 @@
     </div>
 
     <script>
+        // intercept the registration form submission and redirect to login
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registerForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    // optional: you could save the form data to localStorage or
+                    // perform additional validation here before redirecting
+                    window.location.href = 'Login.html';
+                });
+            }
+        });
+
         const snowContainer = document.getElementById("snowLayer");
         const FLAKE_COUNT = 80; // adjust for more/less snow
 
